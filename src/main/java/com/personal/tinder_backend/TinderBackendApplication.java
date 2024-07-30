@@ -29,6 +29,8 @@ public class TinderBackendApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		profileRepository.deleteAll();
+		conversationRepository.deleteAll();
 		Profile profile = new Profile("1","itachi","uchiha",18,"uchiha","foo.jpg","japanese", GENDER.MALE);
 		profileRepository.save(profile);
 		profileRepository.findAll().forEach(System.out::println);
